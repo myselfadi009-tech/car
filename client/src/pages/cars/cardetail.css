@@ -1,0 +1,68 @@
+.car-detail-page { padding: 100px 0 80px; min-height: 100vh; }
+.back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 14px; text-decoration: none; margin-bottom: 32px; transition: color 0.2s ease; }
+.back-link:hover { color: var(--orange); }
+
+.car-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+
+.car-gallery { display: flex; flex-direction: column; gap: 12px; }
+.main-image { border-radius: var(--radius); overflow: hidden; position: relative; height: 420px; }
+.main-image img { width: 100%; height: 100%; object-fit: cover; }
+.availability-badge { position: absolute; bottom: 16px; left: 16px; display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); padding: 6px 14px; border-radius: 50px; font-size: 13px; color: #fff; }
+
+.image-thumbnails { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+.thumb { width: 90px; height: 65px; border-radius: 8px; overflow: hidden; border: 2px solid transparent; cursor: pointer; transition: border-color 0.2s ease; flex-shrink: 0; padding: 0; }
+.thumb.active { border-color: var(--orange); }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.car-info { display: flex; flex-direction: column; gap: 20px; }
+.car-info-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.car-brand-badge { font-size: 12px; color: var(--orange); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin: 0; }
+.car-detail-name { font-size: 32px; font-weight: 800; color: var(--text-white); margin: 4px 0; }
+.car-detail-model { font-size: 14px; color: var(--text-secondary); margin: 0; }
+.car-rating-box { display: flex; align-items: center; gap: 6px; }
+.car-rating-box span { font-size: 16px; font-weight: 700; color: var(--text-white); }
+.rating-count { font-size: 12px; color: var(--text-secondary); font-weight: 400; }
+
+.car-price-section { background: var(--orange-light); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; }
+.car-price-big { display: flex; align-items: baseline; gap: 6px; }
+.car-price-big span:first-child { font-size: 40px; font-weight: 900; color: var(--orange); }
+.per-day { font-size: 16px; color: var(--text-secondary); }
+
+.car-specs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.spec-box { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px; text-align: center; }
+.spec-icon { color: var(--orange); margin-bottom: 8px; }
+.spec-label { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; margin: 0; }
+.spec-value { font-size: 14px; font-weight: 600; color: var(--text-white); margin: 4px 0 0; }
+
+.car-features h4, .car-description h4 { font-size: 15px; font-weight: 600; color: var(--text-white); margin-bottom: 12px; }
+.features-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.feature-tag { background: var(--orange-light); border: 1px solid rgba(255,138,0,0.3); color: var(--orange); padding: 4px 12px; border-radius: 50px; font-size: 12px; font-weight: 500; }
+.car-description p { font-size: 14px; color: var(--text-secondary); line-height: 1.8; }
+
+.car-detail-actions { display: flex; gap: 12px; }
+
+.reviews-section { border-top: 1px solid var(--border-subtle); padding-top: 48px; }
+.reviews-section h2 { font-size: 26px; font-weight: 700; color: var(--text-white); margin-bottom: 32px; }
+
+.review-form { padding: 28px; margin-bottom: 32px; }
+.review-form h4 { font-size: 16px; font-weight: 600; color: var(--text-white); margin-bottom: 20px; }
+.rating-input label { font-size: 13px; color: var(--text-secondary); display: block; margin-bottom: 8px; }
+.star-selector { display: flex; gap: 4px; margin-bottom: 16px; }
+.review-form textarea { margin-bottom: 16px; resize: vertical; }
+
+.reviews-list { display: flex; flex-direction: column; gap: 16px; }
+.review-card { padding: 20px; }
+.review-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.review-author { display: flex; align-items: center; gap: 12px; }
+.review-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--orange); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; overflow: hidden; }
+.review-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.review-name { font-size: 14px; font-weight: 600; color: var(--text-white); margin: 0; }
+.review-date { font-size: 11px; color: var(--text-secondary); margin: 0; }
+.review-stars { display: flex; gap: 3px; }
+.review-comment { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin: 0; }
+
+@media (max-width: 768px) {
+  .car-detail-grid { grid-template-columns: 1fr; }
+  .car-specs-grid { grid-template-columns: repeat(2, 1fr); }
+  .car-detail-name { font-size: 24px; }
+}

@@ -1,0 +1,179 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-bg-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,138,0,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 40px;
+  position: relative;
+  z-index: 1;
+  border: 1px solid var(--border-subtle);
+}
+
+.auth-header { text-align: center; margin-bottom: 28px; }
+.auth-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+.auth-logo-img {
+  width: 36px; height: 36px; object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(255,138,0,0.5));
+}
+.auth-header h2 { font-size: 26px; font-weight: 700; color: var(--text-white); margin-bottom: 8px; }
+.auth-header p { font-size: 14px; color: var(--text-secondary); }
+
+.google-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-white);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'Poppins', sans-serif;
+}
+.google-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+
+.auth-divider {
+  text-align: center;
+  position: relative;
+  margin: 20px 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.auth-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border-subtle);
+}
+.auth-divider span { background: var(--bg-card); padding: 0 12px; position: relative; }
+
+.form-group { margin-bottom: 18px; }
+
+.input-wrapper { position: relative; }
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: 16px;
+  pointer-events: none;
+}
+.input-with-icon { padding-left: 42px !important; }
+.input-icon-right {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+}
+
+.field-error { font-size: 12px; color: #ff6b6b; margin-top: 4px; }
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 13px !important;
+  font-size: 15px !important;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.auth-switch { text-align: center; font-size: 13px; color: var(--text-secondary); margin-top: 20px; }
+.auth-switch a { color: var(--orange); font-weight: 600; text-decoration: none; }
+.auth-switch a:hover { text-decoration: underline; }
+
+/* ── Wider card for register ── */
+.auth-card-wide { max-width: 480px; }
+
+/* ── CAPTCHA ── */
+.captcha-box {
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(255,138,0,0.06);
+  border: 1.5px solid rgba(255,138,0,0.25);
+  border-radius: 10px; padding: 12px 14px;
+}
+.captcha-question {
+  display: flex; align-items: center; gap: 8px;
+}
+.captcha-shield { color: var(--orange); flex-shrink: 0; }
+.captcha-text {
+  font-size: 18px; font-weight: 800; color: var(--text-white);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, var(--orange), #ffb347);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.captcha-refresh {
+  background: rgba(255,138,0,0.1); border: 1px solid rgba(255,138,0,0.2);
+  border-radius: 7px; padding: 6px 8px; color: var(--orange);
+  cursor: pointer; display: flex; align-items: center;
+  transition: all 0.2s; flex-shrink: 0;
+}
+.captcha-refresh:hover { background: rgba(255,138,0,0.18); transform: rotate(90deg); }
+
+/* ── Password Strength ── */
+.pw-strength-wrap {
+  display: flex; align-items: center; gap: 10px; margin-top: 10px;
+}
+.pw-strength-bars { display: flex; gap: 4px; flex: 1; }
+.pw-strength-bar {
+  height: 5px; border-radius: 3px; flex: 1;
+  transition: background 0.3s ease;
+}
+.pw-strength-label { font-size: 11px; font-weight: 700; white-space: nowrap; }
+
+/* ── Password Rules ── */
+.pw-rules {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-top: 10px;
+}
+.pw-rule {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; padding: 4px 0;
+  transition: color 0.2s;
+}
+.pw-rule.pass { color: #00c864; }
+.pw-rule.fail { color: var(--text-muted); }
+.pw-rule svg { flex-shrink: 0; }

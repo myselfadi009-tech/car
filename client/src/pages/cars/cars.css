@@ -1,0 +1,195 @@
+.cars-page { min-height: 100vh; }
+
+.cars-hero {
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  padding: 120px 0 60px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.cars-hero-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(255,138,0,0.1) 0%, transparent 60%);
+}
+
+/* ── Search bar wrapper (for relative positioning of suggestions) ── */
+.search-bar-wrap {
+  position: relative;
+  margin-top: 32px;
+  max-width: 700px;
+}
+
+.search-bar {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.search-bar:focus-within {
+  border-color: var(--orange);
+  box-shadow: 0 0 20px rgba(255,138,0,0.15);
+}
+.search-bar svg { color: var(--text-secondary); flex-shrink: 0; }
+.search-bar input {
+  flex: 1; background: none; border: none;
+  color: var(--text-white); font-size: 15px; font-family: 'Poppins', sans-serif;
+}
+.search-bar input:focus { outline: none; }
+.search-clear-btn {
+  background: none; border: none; color: var(--text-secondary);
+  cursor: pointer; display: flex; padding: 2px;
+  border-radius: 4px; transition: color 0.2s;
+}
+.search-clear-btn:hover { color: var(--text-white); }
+
+/* ── Search Suggestions Dropdown ── */
+.search-suggestions {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0; right: 0;
+  background: rgba(10, 10, 14, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,138,0,0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,138,0,0.06);
+  z-index: 100;
+}
+.ss-header {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 10px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--text-muted);
+  padding: 10px 16px 6px;
+}
+.ss-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 16px; cursor: pointer;
+  transition: background 0.15s ease;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.ss-item:hover { background: rgba(255,138,0,0.07); }
+.ss-thumb {
+  width: 52px; height: 36px; object-fit: cover;
+  border-radius: 7px; flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.ss-info { flex: 1; min-width: 0; }
+.ss-name {
+  font-size: 13px; font-weight: 600; color: var(--text-white);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block;
+}
+.ss-meta { font-size: 11px; color: var(--text-muted); }
+.ss-price { font-size: 12px; font-weight: 700; color: var(--orange); white-space: nowrap; flex-shrink: 0; }
+
+.cars-body { padding: 32px 24px 60px; }
+
+.cars-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--orange-light);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'Poppins', sans-serif;
+}
+.filter-toggle-btn:hover { background: var(--orange); color: #fff; }
+.results-count { font-size: 13px; color: var(--text-secondary); }
+
+.sort-select {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  color: var(--text-white);
+  font-size: 13px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+.view-toggle {
+  display: flex;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.view-toggle button {
+  padding: 9px 12px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+}
+.view-toggle button.active { background: var(--orange); color: #fff; }
+
+.filters-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.filters-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.filter-group label { display: block; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.filter-group select, .filter-group input {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  color: var(--text-white);
+  padding: 9px 12px;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+}
+.filter-group select:focus, .filter-group input:focus { outline: none; border-color: var(--orange); }
+
+.cars-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.cars-grid-container.list { grid-template-columns: 1fr; }
+
+.no-cars {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-secondary);
+}
+.no-cars h3 { font-size: 22px; color: var(--text-white); margin: 12px 0 8px; }
+.no-cars p { margin-bottom: 24px; }
+
+.pagination { display: flex; justify-content: center; gap: 8px; margin-top: 48px; flex-wrap: wrap; }
+.page-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+}
+.page-btn:hover, .page-btn.active { background: var(--orange); color: #fff; border-color: var(--orange); }
