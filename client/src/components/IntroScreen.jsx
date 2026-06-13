@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logoImg from '@assets/logo_1779723381406.png';
+import logoImg from '@assets/logo.png';
 import './IntroScreen.css';
 
 export default function IntroScreen({ onComplete }) {

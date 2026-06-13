@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fi';
 import { logoutUser } from '../../redux/slices/authSlice.js';
 import toast from 'react-hot-toast';
-import logoImg from '@assets/logo_1779723381406.png';
+import logoImg from '@assets/logo.png';
 import './navbar.css';
 
 const NAV_LINKS = [

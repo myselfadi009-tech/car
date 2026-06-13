@@ -1,12 +1,18 @@
 import axios from 'axios';
 
+const rawUrl = (import.meta.env.VITE_API_URL || '')
+  .replace(/\/api\/?$/, '')
+  .replace(/\/$/, '');
+
+const BASE_URL = rawUrl ? `${rawUrl}/api` : '/api';
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: BASE_URL,
   withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
 });
 
-const SKIP_REFRESH_URLS = ['/auth/me', '/auth/refresh', '/auth/login', '/auth/register', '/auth/google'];
+const SKIP_REFRESH_URLS = ['/auth/refresh', '/auth/login', '/auth/register', '/auth/google'];
 
 api.interceptors.response.use(
   (res) => res,
@@ -21,7 +27,7 @@ api.interceptors.response.use(
     ) {
       original._retry = true;
       try {
-        await axios.post('/api/auth/refresh', {}, { withCredentials: true });
+        await axios.post(`${BASE_URL}/auth/refresh`, {}, { withCredentials: true });
         return api(original);
       } catch {
         window.location.href = '/login';

@@ -9,7 +9,7 @@ import { MdLocalGasStation, MdSpeed } from 'react-icons/md';
 import { BsPersonFill, BsFillLightningFill } from 'react-icons/bs';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import heroImg from '@assets/hero_1779723381405.png';
-import logoImg from '@assets/logo_1779723381406.png';
+import logoImg from '@assets/logo.png';
 import './home.css';
 
 const trendingCars = [
@@ -204,87 +204,56 @@ export default function HomePage() {
         <div className="rr-hero-bg">
           <img src={heroImg} alt="Luxury Supercar" className="rr-hero-car-img" />
           <div className="rr-hero-overlay" />
-          <div className="rr-hero-glow rr-hero-glow-1" />
-          <div className="rr-hero-glow rr-hero-glow-2" />
-          <div className="rr-hero-glow rr-hero-glow-3" />
         </div>
 
         {/* Thunder lightning effect */}
         <ThunderEffect />
 
-        {/* Floating particles */}
-        <div className="hero-particles">
-          {[...Array(12)].map((_, i) => (
-            <div key={i} className="hero-particle" style={{ '--i': i }} />
-          ))}
-        </div>
-
         <div className="rr-hero-center">
           <motion.div
-            className="rr-hero-card"
-            initial={{ opacity: 0, scale: 0.88, y: 50 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="rr-hero-pill-card"
+            initial={{ opacity: 0, y: 30, scale: 0.94 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Logo badge */}
+            {/* Brand label */}
             <motion.div
-              className="hero-logo-badge"
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.6, type: 'spring' }}
+              className="hero-pill-brand"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.25, duration: 0.5 }}
             >
-              <img src={logoImg} alt="RoyalRent" className="hero-logo-img" />
-              <span>RoyalRent</span>
+              <img src={logoImg} alt="RoyalRent" className="hero-pill-logo" />
+              <span>ROYALRENT</span>
             </motion.div>
 
             <motion.h1
-              className="rr-hero-title"
-              initial={{ opacity: 0, y: 24 }}
+              className="rr-hero-pill-title"
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.7 }}
+              transition={{ delay: 0.38, duration: 0.6 }}
             >
-              Rent Your{' '}
-              <span className="orange-text">
-                <TypewriterText words={HERO_WORDS} />
-              </span>
+              Next-gen fleet.<br />
+              <span className="orange-text">Instant drive.</span>
             </motion.h1>
 
             <motion.p
-              className="rr-hero-sub"
-              initial={{ opacity: 0, y: 18 }}
+              className="rr-hero-pill-sub"
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.7 }}
+              transition={{ delay: 0.52, duration: 0.6 }}
             >
-              Smart Rentals. Seamless Journey.<br />
-              Drive Anywhere, Anytime.
+              Rent Your Dream Car. Transparent pricing.<br />Book in seconds.
             </motion.p>
 
             <motion.div
-              className="rr-hero-btns"
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65, duration: 0.7 }}
+              transition={{ delay: 0.65, duration: 0.5 }}
             >
-              <Link to="/cars" className="btn-orange rr-hero-btn-primary">
-                Book Car <FiArrowRight />
+              <Link to="/cars" className="btn-orange rr-hero-pill-btn">
+                See Fleet <FiArrowRight size={14} />
               </Link>
-              <Link to="/cars" className="rr-hero-btn-ghost">
-                Explore Cars
-              </Link>
-            </motion.div>
-
-            {/* Mini stats in hero */}
-            <motion.div
-              className="hero-mini-stats"
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            >
-              <div className="hero-mini-stat"><span>250+</span><p>Cars</p></div>
-              <div className="hero-mini-sep" />
-              <div className="hero-mini-stat"><span>12k+</span><p>Happy Riders</p></div>
-              <div className="hero-mini-sep" />
-              <div className="hero-mini-stat"><span>4.9★</span><p>Rating</p></div>
             </motion.div>
           </motion.div>
         </div>
